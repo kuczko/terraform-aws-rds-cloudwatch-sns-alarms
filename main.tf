@@ -1,11 +1,11 @@
 data "aws_caller_identity" "default" {}
 
 locals {
-  sns_topic = var.sns_topic = "" ? aws_sns_topic.default.arn : var.sns_topic
+  sns_topic = var.sns_topic == "" ? aws_sns_topic.default.arn : var.sns_topic
 }
 
 module "db_alarm_topic" {
-  count       = var.sns_topic = "" ? 1 : 0
+  count       = var.sns_topic == "" ? 1 : 0
   source      = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.19.2"
   namespace   = var.namespace
   name        = "${var.name}-alarms"
