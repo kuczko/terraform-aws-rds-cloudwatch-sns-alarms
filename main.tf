@@ -5,7 +5,6 @@ locals {
 }
 
 module "db_alarm_topic" {
-  count       = var.sns_topic == "" ? 1 : 0
   source      = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.19.2"
   namespace   = var.namespace
   name        = "${var.name}-alarms"
@@ -16,6 +15,7 @@ module "db_alarm_topic" {
 }
 
 resource "aws_sns_topic" "default" {
+  count       = var.sns_topic == "" ? 1 : 0
   name_prefix = module.db_alarm_topic.id
 }
 
