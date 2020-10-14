@@ -86,3 +86,9 @@ variable "swap_usage_threshold" {
 
   # 256 Megabyte in Byte
 }
+
+variable "sns_topic" {
+  description = "SNS topic to send alarms to."
+  type        = "string"
+  default     = null
+}
