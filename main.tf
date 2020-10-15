@@ -1,7 +1,7 @@
 data "aws_caller_identity" "default" {}
 
 locals {
-  sns_topic = var.sns_topic == "" ? aws_sns_topic.default.arn : var.sns_topic
+  sns_topic = var.sns_topic == "" ? aws_sns_topic.default[0].arn : var.sns_topic
 }
 
 module "db_alarm_topic" {
