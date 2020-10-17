@@ -9,7 +9,6 @@ module "db_alarm_topic" {
   namespace   = var.namespace
   name        = "${var.name}-alarms"
   stage       = var.stage
-  environment = var.environment
   delimiter   = var.delimiter
   attributes  = var.attributes
 }
