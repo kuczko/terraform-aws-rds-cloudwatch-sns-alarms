@@ -62,8 +62,7 @@ data "aws_iam_policy_document" "sns_topic_policy" {
     ]
 
     effect    = "Allow"
-    #resources = [local.sns_topic]
-    resources = [aws_sns_topic.default.arn]
+    resources = [local.sns_topic]
 
     principals {
       type        = "AWS"
@@ -83,8 +82,7 @@ data "aws_iam_policy_document" "sns_topic_policy" {
   statement {
     sid       = "Allow CloudwatchEvents"
     actions   = ["sns:Publish"]
-    #resources = [local.sns_topic]
-    resources = [aws_sns_topic.default.arn]
+    resources = [local.sns_topic]
 
     principals {
       type        = "Service"
@@ -95,7 +93,7 @@ data "aws_iam_policy_document" "sns_topic_policy" {
   statement {
     sid       = "Allow RDS Event Notification"
     actions   = ["sns:Publish"]
-    resources = [aws_sns_topic.default.arn]
+    resources = [local.sns_topic]
 
     principals {
       type        = "Service"
