@@ -1,4 +1,4 @@
-variable "namespace" {
+ariable "namespace" {
   type        = string
   default     = ""
   description = "Namespace, which could be your organization name or abbreviation, e.g. 'eg' or 'cp'"
@@ -90,5 +90,5 @@ variable "swap_usage_threshold" {
 variable "sns_topic" {
   description = "SNS topic to send alarms to."
   type        = "string"
-  default     = null
+  default     = ""
 }
